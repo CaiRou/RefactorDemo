@@ -30,9 +30,12 @@ public class Rental {
      * 积分计算规则
      * @return
      */
-    public int getFrequentRentalPoints(){
+    public double getFrequentRentalPoints(){
         if((this.getMovie().getPriceCode() == Movie.NEW_RELEASE) && this.getDayRented() > 1){
             return 2;
+        }
+        if((this.getMovie().getPriceCode() == Movie.ART)){
+            return 1.5;
         }
         return 1;
     }

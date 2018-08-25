@@ -42,8 +42,8 @@ public class Customer {
      * 计算总积分
      * @return
      */
-     int getTotalFrequentRentalPoints(){
-        int totalFrequentRentalPoints = 0;
+     double getTotalFrequentRentalPoints(){
+        double totalFrequentRentalPoints = 0;
         Enumeration rentals = this.rentals.elements();
         while(rentals.hasMoreElements()){
             Rental rental = (Rental) rentals.nextElement();

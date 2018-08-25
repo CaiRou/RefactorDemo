@@ -4,7 +4,7 @@ public class Movie {
     public static final int CHILDRENS = 2;
     public static final int REGULAR = 0;
     public static final int NEW_RELEASE = 1;
-
+    public static final int ART = 3;
     private String title;
     private Price price;
 
@@ -33,6 +33,9 @@ public class Movie {
                 break;
             case Movie.CHILDRENS:
                 price = new ChildrenPrice();
+                break;
+            case Movie.ART:
+                price = new ArtPrice();
                 break;
         }
     }
