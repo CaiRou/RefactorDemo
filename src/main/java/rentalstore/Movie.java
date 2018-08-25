@@ -7,6 +7,7 @@ public class Movie {
     public static final int ART = 3;
     private String title;
     private Price price;
+    private Point point = new DefaultPoint();
 
     public Movie(String title, int priceCode) {
         this.title = title;
@@ -30,17 +31,25 @@ public class Movie {
                 break;
             case Movie.NEW_RELEASE:
                 price = new NewReleasePrice();
+                point = new NewReleasePoint();
                 break;
             case Movie.CHILDRENS:
                 price = new ChildrenPrice();
                 break;
             case Movie.ART:
                 price = new ArtPrice();
+                point = new ArtPoint();
                 break;
         }
     }
 
     public double getCharge(int daysRented){
         return price.getCharge(daysRented);
+    }
+
+
+
+    public double getFrequentRentalPoints(int dayRented){
+        return point.getFrequentRentalPoints(dayRented);
     }
 }
