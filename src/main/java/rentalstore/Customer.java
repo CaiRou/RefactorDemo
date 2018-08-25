@@ -29,11 +29,9 @@ public class Customer {
             Rental each = (Rental) rentals.nextElement();
 
             //抽取租赁计费的规则
-            thisAmount = getCharge(each);
-
+            thisAmount = each.getCharge();
             //抽取积分计算规则
-            frequentRenterPoints += getFrequentRentalPoints(each);
-
+            frequentRenterPoints += each.getFrequentRentalPoints();
 
             //show figures for this rental
             result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
@@ -47,42 +45,5 @@ public class Customer {
     }
 
 
-    /**
-     * 租赁计费
-     * @param rental
-     * @return
-     */
-    private double getCharge(Rental rental){
-        double thisAmount = 0;
-        switch (rental.getMovie().getPriceCode()){
-            case Movie.REGULAR:
-                thisAmount += 2;
-                if(rental.getDayRented() > 2){
-                    thisAmount += (rental.getDayRented() - 2) * 1.5;
-                }
-                break;
-            case Movie.NEW_RELEASE:
-                thisAmount += rental.getDayRented()*3;
-                break;
-            case Movie.CHILDRENS:
-                thisAmount += 1.5;
-                if(rental.getDayRented() > 3){
-                    thisAmount += (rental.getDayRented() -3) * 1.5;
-                }
-                break;
-        }
-        return thisAmount;
-    }
 
-    /**
-     * 积分计算规则
-     * @param rental
-     * @return
-     */
-    private int getFrequentRentalPoints(Rental rental){
-        if((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && rental.getDayRented() > 1){
-            return 2;
-        }
-        return 1;
-    }
 }
