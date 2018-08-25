@@ -1,4 +1,4 @@
-package rentalstore;
+package rentalstore.point;
 
 /**
  * @Author C.

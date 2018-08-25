@@ -1,5 +1,8 @@
 package rentalstore;
 
+import rentalstore.statement.HtmlStatement;
+import rentalstore.statement.TextStatement;
+
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -28,7 +31,7 @@ public class Customer {
      * 计算总金额
      * @return
      */
-     double getTotalCharge(){
+     public double getTotalCharge(){
         double totalAmount = 0;
         Enumeration rentals = this.rentals.elements();
         while(rentals.hasMoreElements()){
@@ -42,7 +45,7 @@ public class Customer {
      * 计算总积分
      * @return
      */
-     double getTotalFrequentRentalPoints(){
+     public double getTotalFrequentRentalPoints(){
         double totalFrequentRentalPoints = 0;
         Enumeration rentals = this.rentals.elements();
         while(rentals.hasMoreElements()){

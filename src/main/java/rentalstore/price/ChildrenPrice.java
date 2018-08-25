@@ -1,10 +1,12 @@
-package rentalstore;
+package rentalstore.price;
+
+import rentalstore.Movie;
 
 /**
  * @Author C.
  * @Date 2018-08-25 22:44
  */
-public class ChildrenPrice implements Price{
+public class ChildrenPrice implements Price {
     public int getPriceCode() {
         return Movie.CHILDRENS;
     }

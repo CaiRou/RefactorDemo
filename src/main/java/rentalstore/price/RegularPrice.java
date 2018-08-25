@@ -1,4 +1,7 @@
-package rentalstore;
+package rentalstore.price;
+
+import rentalstore.Movie;
+import rentalstore.price.Price;
 
 /**
  * @Author C.

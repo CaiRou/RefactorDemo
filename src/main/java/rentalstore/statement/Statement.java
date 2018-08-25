@@ -1,4 +1,7 @@
-package rentalstore;
+package rentalstore.statement;
+
+import rentalstore.Customer;
+import rentalstore.Rental;
 
 import java.util.Enumeration;
 
@@ -7,7 +10,7 @@ import java.util.Enumeration;
  * @Date 2018-08-25 21:09
  */
 public abstract class Statement {
-    String value(Customer customer){
+    public String value(Customer customer){
         Enumeration rentals = customer.getRentals().elements();
         String result = this.getHeadString(customer);
         while (rentals.hasMoreElements()) {
@@ -18,9 +21,9 @@ public abstract class Statement {
         return result;
     }
 
-    abstract String getHeadString(Customer customer);
+    public abstract String getHeadString(Customer customer);
 
-    abstract String getEachRentalString(Rental rental);
+    public abstract String getEachRentalString(Rental rental);
 
-    abstract String getFooterString(Customer customer);
+    public abstract String getFooterString(Customer customer);
 }

@@ -1,6 +1,7 @@
-package rentalstore;
+package rentalstore.statement;
 
-import java.util.Enumeration;
+import rentalstore.Customer;
+import rentalstore.Rental;
 
 /**
  * @Author C.

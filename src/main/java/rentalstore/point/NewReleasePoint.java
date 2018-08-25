@@ -1,4 +1,6 @@
-package rentalstore;
+package rentalstore.point;
+
+import rentalstore.point.Point;
 
 /**
  * @Author C.

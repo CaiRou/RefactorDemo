@@ -1,6 +1,7 @@
-package rentalstore;
+package rentalstore.statement;
 
-import java.util.Enumeration;
+import rentalstore.Customer;
+import rentalstore.Rental;
 
 /**
  * @Author C.
@@ -8,15 +9,15 @@ import java.util.Enumeration;
  */
 public class TextStatement extends Statement{
 
-    String getHeadString(Customer customer) {
+    public String getHeadString(Customer customer) {
         return "Rental Record for " + customer.getName() + "\n";
     }
 
-    String getEachRentalString(Rental rental) {
+    public String getEachRentalString(Rental rental) {
         return "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(rental.getCharge()) + "\n";
     }
 
-    String getFooterString(Customer customer) {
+    public String getFooterString(Customer customer) {
         return "Amount owed is " + String.valueOf(customer.getTotalCharge()) + "\n"
                + "You earned " + String.valueOf(customer.getTotalFrequentRentalPoints()) + " frequent renter points";
 

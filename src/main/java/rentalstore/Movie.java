@@ -1,5 +1,11 @@
 package rentalstore;
 
+import rentalstore.point.ArtPoint;
+import rentalstore.point.DefaultPoint;
+import rentalstore.point.NewReleasePoint;
+import rentalstore.point.Point;
+import rentalstore.price.*;
+
 public class Movie {
     public static final int CHILDRENS = 2;
     public static final int REGULAR = 0;
