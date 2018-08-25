@@ -31,12 +31,9 @@ public class Customer {
             //抽取租赁计费的规则
             thisAmount = getCharge(each);
 
-            //add frequent renter points
-            frequentRenterPoints ++;
-            //add bonus for a two day new release rental
-            if((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDayRented() > 1){
-                frequentRenterPoints ++;
-            }
+            //抽取积分计算规则
+            frequentRenterPoints += getFrequentRentalPoints(each);
+
 
             //show figures for this rental
             result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
@@ -75,5 +72,17 @@ public class Customer {
                 break;
         }
         return thisAmount;
+    }
+
+    /**
+     * 积分计算规则
+     * @param rental
+     * @return
+     */
+    private int getFrequentRentalPoints(Rental rental){
+        if((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && rental.getDayRented() > 1){
+            return 2;
+        }
+        return 1;
     }
 }
