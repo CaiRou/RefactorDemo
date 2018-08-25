@@ -47,4 +47,14 @@
 - then output correct Html statement
 
 
+## 顾客租赁一天的文艺电影碟片(ART)
+- given a customer(kevin) has rent one art movie for 1 day
+- when get correct statement
+- then output correct statement
+
+
+## 顾客租赁两天的文艺电影碟片(ART)
+- given a customer(kevin) has rent one art movie for 2 day
+- when get correct statement
+- then output correct statement
 
