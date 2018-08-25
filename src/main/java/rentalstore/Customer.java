@@ -27,7 +27,6 @@ public class Customer {
             //show figures for this rental
             result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.getCharge()) + "\n";
         }
-
         //add footer lines
         result += "Amount owed is " + String.valueOf(this.getTotalCharge()) + "\n";
         result += "You earned " + String.valueOf(this.getTotalFrequentRentalPoints()) + " frequent renter points";
@@ -64,5 +63,7 @@ public class Customer {
     }
 
 
-
+    public String htmlStatement() {
+        return null;
+    }
 }

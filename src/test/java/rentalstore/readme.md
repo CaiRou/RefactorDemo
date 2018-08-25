@@ -41,3 +41,10 @@
 - then output correct statement
 
 
+## 顾客租赁四天的电影碟片(CHILDRENS)
+- given a customer(kevin) has rent one child movie for 4 day
+- when get correct statement
+- then output correct Html statement
+
+
+
