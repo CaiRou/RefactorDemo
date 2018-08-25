@@ -20,28 +20,47 @@ public class Customer {
     }
 
     public String statement(){
-        double totalAmount = 0;
-        int frequentRenterPoints = 0;
         Enumeration rentals = this.rentals.elements();
         String result = "Rental Record for " + getName() + "\n";
         while(rentals.hasMoreElements()){
-            double thisAmount = 0;
             Rental each = (Rental) rentals.nextElement();
-
-            //抽取租赁计费的规则
-            thisAmount = each.getCharge();
-            //抽取积分计算规则
-            frequentRenterPoints += each.getFrequentRentalPoints();
-
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
-            totalAmount += thisAmount;
+            result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.getCharge()) + "\n";
         }
 
         //add footer lines
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
+        result += "Amount owed is " + String.valueOf(this.getTotalCharge()) + "\n";
+        result += "You earned " + String.valueOf(this.getTotalFrequentRentalPoints()) + " frequent renter points";
         return result;
+    }
+
+
+    /**
+     * 计算总金额
+     * @return
+     */
+    private double getTotalCharge(){
+        double totalAmount = 0;
+        Enumeration rentals = this.rentals.elements();
+        while(rentals.hasMoreElements()){
+            Rental rental = (Rental) rentals.nextElement();
+            totalAmount += rental.getCharge();
+        }
+        return totalAmount;
+    }
+
+    /**
+     * 计算总积分
+     * @return
+     */
+    private int getTotalFrequentRentalPoints(){
+        int totalFrequentRentalPoints = 0;
+        Enumeration rentals = this.rentals.elements();
+        while(rentals.hasMoreElements()){
+            Rental rental = (Rental) rentals.nextElement();
+            totalFrequentRentalPoints += rental.getFrequentRentalPoints();
+        }
+        return totalFrequentRentalPoints;
     }
 
 
